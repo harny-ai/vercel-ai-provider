@@ -1,0 +1,65 @@
+{
+  "name": "@harny/vercel-ai-provider",
+  "version": "0.1.1",
+  "description": "Long-term memory for the Vercel AI SDK. Wrap any model and it remembers each person across conversations.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "author": "Harny <build@harny.ai>",
+  "homepage": "https://harny.ai",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harny-ai/vercel-ai-provider.git"
+  },
+  "bugs": {
+    "url": "https://github.com/harny-ai/vercel-ai-provider/issues"
+  },
+  "keywords": [
+    "ai",
+    "ai-sdk",
+    "vercel",
+    "memory",
+    "long-term-memory",
+    "agents",
+    "llm",
+    "harny"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.check.json",
+    "test": "vitest run",
+    "ci": "bash scripts/ci.sh",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "ai": "^7.0.0"
+  },
+  "devDependencies": {
+    "@ai-sdk/provider": "4.0.34",
+    "@types/node": "^20.11.0",
+    "ai": "7.0.156",
+    "typescript": "~5.6.3",
+    "vitest": "4.1.12"
+  }
+}
